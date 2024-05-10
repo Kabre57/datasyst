@@ -44,28 +44,10 @@ export class AppComponent implements OnInit {
     this.routerSubscription = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd || event instanceof NavigationCancel))
       .subscribe((event) => {
-
+        this.loadScript("..assets/js/plugins.min.js");
+        this.loadScript("..assets/js/functions.bundle.js");
         // <!--Jquery JS-- >
-        this.loadScript("..assets/js/jquery-3.6.0.min.js");
-        // < !--Bootstrap JS-- >
-        this.loadScript("..assets/js/bootstrap.bundle.min.js");
-        //  < !--Gsap -->
-        this.loadScript("..assets/js/gsap.min.js");
-        this.loadScript("..assets/js/ScrollTrigger.min.js");
-        this.loadScript("..assets/js/ScrollSmoother.min.js" );
-        this.loadScript("..assets/js/SplitText.min.js" );
-        // < !--Swiper Carousel JS-- >
-         this.loadScript("..assets/js/swiper-bundle.min.js");
-        // < !--Magnific Popup JS-- >
-        this.loadScript("..assets/js/jquery.magnific-popup.min.js");
-        // < !--Odometer JS-- >
-         this.loadScript("..assets/js/odometer.min.js");
-         this.loadScript("..assets/js/viewport.jquery.js");
-        // < !--Mean menu JS-- >
-        this.loadScript("..assets/js/jquery.meanmenu.min.js");
-        // < !--Main JS-- >
-        this.loadScript("..assets/js/main.js" );
-
+    
         this.location = this.router.url;
         if (!(event instanceof NavigationEnd)) {
           return;
